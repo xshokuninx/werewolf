@@ -1,6 +1,5 @@
 from discord.ext import commands
 from cogs.utils.player import Player
-from cogs.utils.game import Game
 
 class PlayersCog(commands.Cog):
     def __init__(self, bot):
