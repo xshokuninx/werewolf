@@ -13,6 +13,14 @@ class Vote(commands.Cog):
             await self.bot.on_command_error(ctx, errors.NotDMChannel())
             return False
         return True
-
+    ###
+   @commands.command()
+    async def werewolfs(self, ctx): 
+        if self.bot.game.players.get(ctx.author.id).role == '人狼':
+            for i in　self.bot.game.players.werewolfs
+        else
+            await ctx.send('あなたは人狼ではありません')
+            return
+###
 def setup(bot):
     return bot.add_cog(Vote(bot))
