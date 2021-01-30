@@ -25,3 +25,13 @@ class Player():
         
 class Players(list):
     """参加者(複数)"""
+
+    @property
+    def alives(self) -> Players:
+        """生存者(複数)"""
+        return Players(p for p in self if not p.is_dead)
+
+    @property
+    def werewolfs(self) -> Players:
+        """人狼(複数)"""
+        return Players(p for p in self if p.role == '人狼')
