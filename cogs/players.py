@@ -42,14 +42,32 @@ class PlayersCog(commands.Cog):
         
         
     @commands.command()
-    async def villager(self, ctx):
+    async def murabito(self, ctx):
         self.bot.game.casting = self.bot.game.casting + 'あ'
         await ctx.send(f"今の配役:{self.bot.game.casting}")
         wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
         
     @commands.command()
-    async def (self, ctx):
+    async def uranaishi(self, ctx):
+        self.bot.game.casting = self.bot.game.casting + 'い'
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
+        wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
+    async def reibaishi(self, ctx):
+        self.bot.game.casting = self.bot.game.casting + 'う'
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
+        wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
+    async def jinro(self, ctx):
         self.bot.game.casting = self.bot.game.casting + 'ア'
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
+        wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
+    async def youko(self, ctx):
+        self.bot.game.casting = self.bot.game.casting + '狐'
         await ctx.send(f"今の配役:{self.bot.game.casting}")
         wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
 
