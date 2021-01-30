@@ -1,5 +1,6 @@
 import random
 from discord.ext import commands
+from cogs.utils.player import Player
 from cogs.utils.errors import PermissionNotFound, NotGuildChannel
 
 
