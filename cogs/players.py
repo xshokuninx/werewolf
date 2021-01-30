@@ -19,6 +19,7 @@ class PlayersCog(commands.Cog):
         player = Player(member.id)
         self.bot.game.players.append(player)
         await ctx.send(f"{member.mention}さんが参加しました。")
+        self.bot.game.playct += 1
 
     @commands.command()
     async def leave(self, ctx):
@@ -31,6 +32,7 @@ class PlayersCog(commands.Cog):
         for p in self.bot.game.players:
             if member.id == p.id:
                 self.bot.game.players.remove(p)
+                self.bot.game.playct -= 1
                 return await ctx.send("ゲームから退出しました。")
         return await ctx.send("ゲームに参加していません。")
     
