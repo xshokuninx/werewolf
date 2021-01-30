@@ -38,11 +38,20 @@ class PlayersCog(commands.Cog):
     @commands.command()
     async def casting(self, ctx):
         self.bot.game.casting = ''
+        self.bot.game.castct =0
+        
         
     @commands.command()
     async def villager(self, ctx):
         self.bot.game.casting = self.bot.game.casting + 'あ'
         await ctx.send(f"今の配役:{self.bot.game.casting}")
+        wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
+    async def (self, ctx):
+        self.bot.game.casting = self.bot.game.casting + 'ア'
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
+        wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
 
 
 def setup(bot):
