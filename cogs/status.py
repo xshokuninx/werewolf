@@ -40,14 +40,25 @@ class GameStatus(commands.Cog):
         if self.bot.game.status == 'playing':
             await ctx.send('既にゲーム中です')
             return
-
+        
+        if self.bot.game.castct != self.bot.game.playct:
+            await ctx.send('配役人数と参加人数が一致していません')
+            wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+            return            
+        
         n = len(self.bot.game.players)
+        role = self.bot.game.casting
+        role_list = random.sample(role, n)
         for i in range(n):
             player = self.bot.game.players[i]
             user = self.bot.get_user(player.id)
-            ranpas ='あ'
+            ranpas =role_list[i]
             if ranpas  =='あ':
                 role='村人'
+            if ranpas  =='い':
+                role='占い師'
+            elseif ranpas =='ア':
+                role='人狼'
               
             await user.send(f'あなたの役職は{role}です')
             self.role =role
