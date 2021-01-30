@@ -24,3 +24,5 @@ class Player():
         self.raid_target = None
         self.fortune_target = None
 
+class Players(list):
+    """参加者(複数)"""
