@@ -43,7 +43,7 @@ class GameStatus(commands.Cog):
             await ctx.send('既にゲーム中です')
             return
         
-        if self.bot.game.castct != self.bot.game.playct:
+        if not self.bot.game.castct == self.bot.game.playct:
             await ctx.send('配役人数と参加人数が一致していません')
             wait ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
             return            
