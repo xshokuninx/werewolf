@@ -2,8 +2,7 @@ import discord
 from discord.ext import commands
 from cogs.utils import errors
 from cogs.utils.game import Game
-from cogs.utils.player import Players
-from cogs.utils.pagenator import Pagenator
+from cogs.utils.player import Player
 
 
 class Vote(commands.Cog):
