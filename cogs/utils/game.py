@@ -5,6 +5,7 @@ from cogs.utils.player import Player, Players
 class Game():
     """人狼ゲーム
     Attributes:
+        casting (str):簡易版配役
         status (str): 進行状況
         channel (discord.TextChannel): ゲームを進行するチャンネル
         players (Players): 参加者リスト
@@ -16,6 +17,7 @@ class Game():
     """
 
     def __init__(self):
+        self.casting =''
         self.status = 'nothing'
         self.channel = None
         self.players = Players()
