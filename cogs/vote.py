@@ -13,3 +13,6 @@ class Vote(commands.Cog):
             await self.bot.on_command_error(ctx, errors.NotDMChannel())
             return False
         return True
+
+    def setup(bot):
+    return bot.add_cog(Vote(bot))
