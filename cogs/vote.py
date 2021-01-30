@@ -14,5 +14,5 @@ class Vote(commands.Cog):
             return False
         return True
 
-    def setup(bot):
+def setup(bot):
     return bot.add_cog(Vote(bot))
