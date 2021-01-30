@@ -10,6 +10,7 @@ bot.game = Game()
 extensions = [
     'cogs.status',
     'cogs.players',
+    'cogs.vote',
 ]
 for extension in extensions:
     bot.load_extension(extension)
