@@ -34,6 +34,15 @@ class PlayersCog(commands.Cog):
                 self.bot.game.players.remove(p)
                 return await ctx.send("ゲームから退出しました。")
         return await ctx.send("ゲームに参加していません。")
+    
+    @commands.command()
+    async def casting(self, ctx):
+        self.bot.game.casting = ''
+        
+    @commands.command()
+    async def villager(self, ctx):
+        self.bot.game.casting = self.bot.game.casting + 'あ'
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
 
 
 def setup(bot):
