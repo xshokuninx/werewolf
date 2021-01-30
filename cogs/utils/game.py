@@ -20,7 +20,7 @@ class Game():
         self.channel = None
         self.players = Players()
         self.days = 0
-        self.time = night
+        self.time = 'night'
         self.executed = None
         self.raided = None
         self.fortuned = None
