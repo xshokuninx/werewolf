@@ -45,7 +45,7 @@ class GameStatus(commands.Cog):
         for i in range(n):
             player = self.bot.game.players[i]
             user = self.bot.get_user(player.id)
-            ranpas =='あ'
+            ranpas ='あ'
             if ranpas  =='あ':
                 role='村人'
               
