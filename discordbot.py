@@ -8,7 +8,7 @@ bot = commands.Bot(command_prefix='/')
 bot.game = Game()
 
 extensions = [
-    'cogs.players',
+    'cogs.status',
 ]
 for extension in extensions:
     bot.load_extension(extension)
