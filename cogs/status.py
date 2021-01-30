@@ -56,13 +56,13 @@ class GameStatus(commands.Cog):
             ranpas =role_list[i]
             if ranpas  =='あ':
                 role='村人'
-            elseif ranpas  =='い':
+            elif ranpas  =='い':
                 role='占い師'
-            elseif ranpas  =='う':
+            elif ranpas  =='う':
                 role='霊媒師'
-            elseif ranpas =='ア':
+            elif ranpas =='ア':
                 role='人狼'
-            elseif ranpas =='狐':
+            elif ranpas =='狐':
                 role='妖狐'
               
             await user.send(f'あなたの役職は{role}です')
