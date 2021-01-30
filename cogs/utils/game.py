@@ -1,4 +1,5 @@
 from typing import Optional
+from cogs.utils.player import Player, Players
 
 
 class Game():
