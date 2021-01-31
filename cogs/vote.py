@@ -14,19 +14,14 @@ class Vote(commands.Cog):
             return False
         return True
     
-    @commands.command()
+   @commands.command()
     async def wolflist(self, ctx):
-        if self.bot.game.players.get(ctx.author.id).role == '人狼':
-            werewolfs =''
-            guild = self.bot.game.channel.guild
-            for w in self.bot.game.players.werewolfs
-                werewolfs = werewolfs + ' ' + guild.get_member(w.id)
-            await ctx.send(f'人狼 [{werewolfs}]')
-            await ctx.send('あなたは人狼です')
-            return
-        else:
+        if self.bot.game.players.get(ctx.author.id).role != '人狼':
             await ctx.send('あなたは人狼ではありません')
             return
+        guild = self.bot.game.channel.guild
+        werewolfs = ' '.join(guild.get_member(w.id).display_name for w in self.bot.game.players.alives.werewolfs)
+        await ctx.send(f'この村の人狼は {werewolfs} です。')
            
 
 def setup(bot):
