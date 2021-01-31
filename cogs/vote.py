@@ -14,6 +14,16 @@ class Vote(commands.Cog):
             return False
         return True
     
+    """
+   @commands.command()
+    async def wolflist(self, ctx):
+        if self.bot.game.players.get(ctx.author.id).role != '人狼':
+            await ctx.send('あなたは人狼ではありません')
+            return
+        guild = self.bot.game.channel.guild
+        werewolfs = ' '.join(guild.get_member(w.id).display_name for w in self.bot.game.players.werewolfs)
+        await ctx.send(f'人狼[ {werewolfs} ]')
+  """
    
 
 def setup(bot):
