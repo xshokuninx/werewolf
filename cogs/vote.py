@@ -13,17 +13,19 @@ class Vote(commands.Cog):
             await self.bot.on_command_error(ctx, errors.NotDMChannel())
             return False
         return True
-    """
+    
     @commands.command()
     async def werewolfs(self, ctx):
+        """
         cdot='人狼'
         if cdot == '人狼':
             werewolfs =''
             await ctx.send(f'人狼 {werewolfs}')
             return
         else
-            await ctx.send('あなたは人狼ではありません')
-            return
-"""
+        """
+        await ctx.send('あなたは人狼ではありません')
+           
+
 def setup(bot):
     return bot.add_cog(Vote(bot))
