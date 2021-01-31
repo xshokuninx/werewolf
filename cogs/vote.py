@@ -17,7 +17,8 @@ class Vote(commands.Cog):
     @commands.command()
     async def werewolfs(self, ctx):
         if self.bot.game.players.get(ctx.author.id).role == '人狼':
-            werewolfs = ' '.join(guild.get_member(w.id).display_name for w in self.bot.game.players.alives.werewolfs)
+            guild = self.bot.game.channel.guild
+            werewolfs = ' '.join(guild.get_member(w.id).display_name for w in self.bot.game.players.werewolfs)
             await ctx.send(f'人狼 [{werewolfs}]')
             await ctx.send('あなたは人狼です')
             return
