@@ -66,7 +66,7 @@ class GameStatus(commands.Cog):
                 role='妖狐'
               
             await user.send(f'あなたの役職は{role}です')
-            self.role =role
+            player.set_role(role)
 
         await ctx.send('-0日目夜-')
         self.bot.game.status = 'playing'
