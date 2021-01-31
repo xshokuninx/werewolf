@@ -21,7 +21,7 @@ class Vote(commands.Cog):
             await ctx.send(f'人狼 {werewolfs}')"""
             await ctx.send('あなたは人狼です')
             return
-        else
+        else:
             await ctx.send('あなたは人狼ではありません')
             return
            
