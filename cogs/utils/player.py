@@ -23,6 +23,10 @@ class Player():
         self.raid_target = None
         self.fortune_target = None
         
+    def set_role(self, role: str):
+        self.role = role
+        return self
+        
 class Players(list):
     """参加者(複数)"""
 
