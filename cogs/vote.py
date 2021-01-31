@@ -23,7 +23,8 @@ class Vote(commands.Cog):
             await ctx.send('あなたは人狼です')
             return
         else
-        await ctx.send('あなたは人狼ではありません')
+            await ctx.send('あなたは人狼ではありません')
+            return
            
 
 def setup(bot):
