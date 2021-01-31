@@ -22,7 +22,7 @@ class Player():
         self.vote_target = None
         self.raid_target = None
         self.fortune_target = None
-        
+    @property    
     def set_role(self, role: str):
         self.role = role
         return self
