@@ -20,8 +20,8 @@ class Vote(commands.Cog):
             await ctx.send('あなたは人狼ではありません')
             return
         guild = self.bot.game.channel.guild
-        werewolfs = ' '.join(guild.get_member(w.id).display_name for w in self.bot.game.players.alives.werewolfs)
-        await ctx.send(f'この村の人狼は {werewolfs} です。')
+        werewolfs = ' '.join(guild.get_member(w.id).display_name for w in self.bot.game.players.werewolfs)
+        await ctx.send(f'人狼[ {werewolfs} ]')
            
 
 def setup(bot):
