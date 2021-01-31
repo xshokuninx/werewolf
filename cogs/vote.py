@@ -16,7 +16,6 @@ class Vote(commands.Cog):
     
     @commands.command()
     async def werewolfs(self, ctx):
-        
         if self.bot.game.players.get(ctx.author.id).role != '人狼':
             """werewolfs =''
             await ctx.send(f'人狼 {werewolfs}')"""
