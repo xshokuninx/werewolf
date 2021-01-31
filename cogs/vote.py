@@ -18,6 +18,7 @@ class Vote(commands.Cog):
     async def wolflist(self, ctx):
         if self.bot.game.players.get(ctx.author.id).role == '人狼':
             werewolfs =''
+            guild = self.bot.game.channel.guild
             for w in self.bot.game.players.werewolfs
                 werewolfs = werewolfs + ' ' + guild.get_member(w.id)
             await ctx.send(f'人狼 [{werewolfs}]')
