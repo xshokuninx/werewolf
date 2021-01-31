@@ -16,14 +16,13 @@ class Vote(commands.Cog):
     
     @commands.command()
     async def werewolfs(self, ctx):
-        """
-        cdot='人狼'
-        if cdot == '人狼':
-            werewolfs =''
-            await ctx.send(f'人狼 {werewolfs}')
+        
+        if self.bot.game.players.get(ctx.author.id).role != '人狼':
+            """werewolfs =''
+            await ctx.send(f'人狼 {werewolfs}')"""
+            await ctx.send('あなたは人狼です')
             return
         else
-        """
         await ctx.send('あなたは人狼ではありません')
            
 
