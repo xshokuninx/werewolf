@@ -22,7 +22,7 @@ class Vote(commands.Cog):
         guild = self.bot.game.channel.guild
         werewolfs =''
         for w in self.bot.game.players.werewolfs:
-            wid=guild.get_member(w.id)
+            wid=guild.get(w.id)
             werewolfs = werewolfs + ' ' +wid
         await ctx.send(f'この村の人狼は {werewolfs} です。')
     
