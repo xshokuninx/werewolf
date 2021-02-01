@@ -19,11 +19,9 @@ class Vote(commands.Cog):
         if self.bot.game.players.get(ctx.author.id).role != '人狼':
             await ctx.send('あなたは人狼ではありません')
             return
-        guild = self.bot.game.channel.guild
         werewolfs =''
-        for w in self.bot.game.players.werewolfs:
-            wid=guild.get(w.id)
-            werewolfs = werewolfs + ' ' +wid
+        for w in self.bot.game.players.werewolfs.memid:
+            werewolfs = werewolfs + ' ' +w
         await ctx.send(f'この村の人狼は {werewolfs} です。')
     
 def setup(bot):
