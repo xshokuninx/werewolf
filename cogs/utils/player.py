@@ -29,11 +29,6 @@ class Player():
         
 class Players(list):
     """参加者(複数)"""
-
-    @property
-    def memid(self) -> Players:
-        """めんばーID"""
-        return Players(p.id for p in self)
     
     @property
     def alives(self) -> Players:
