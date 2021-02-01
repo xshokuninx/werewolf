@@ -67,6 +67,7 @@ class GameStatus(commands.Cog):
             player.set_role(role)
             await user.send(f'あなたの役職は{role}です')
             name = self.bot.get_user(player.id).display_name
+            player.set_name(name)
             
 
         await ctx.send('-0日目夜-')
