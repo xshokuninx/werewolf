@@ -27,6 +27,10 @@ class Player():
     def set_role(self, role: str):
         self.role = role
         return self
+    
+    def set_name(self, role: str):
+        self.name = name
+        return self
         
 class Players(list):
     """参加者(複数)"""
