@@ -32,8 +32,8 @@ class Players(list):
 
     @property
     def memid(self) -> Players:
-        """めんばーID"""
-        return Players(p.id for p in self)
+        """めんばー麺チョン"""
+        return Players(p.id.mention for p in self)
     
     @property
     def alives(self) -> Players:
