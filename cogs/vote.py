@@ -14,11 +14,11 @@ class Vote(commands.Cog):
             return False
         return True
     
-   
+   """
    @commands.command()
    async def wolflist(self, ctx):
        await ctx.send('あなたは人狼ではありません')
-  
+  """
    
 
 def setup(bot):
