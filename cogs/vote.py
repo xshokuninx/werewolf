@@ -21,7 +21,7 @@ class Vote(commands.Cog):
             return
         werewolfs =''
         for w in self.bot.game.players.werewolfs.memid:
-            werewolfs = werewolfs + ' ' +w.display_name
+            werewolfs = werewolfs + ' ' +w.mention
         await ctx.send(f'この村の人狼は {werewolfs} です。')
     
 def setup(bot):
