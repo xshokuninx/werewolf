@@ -20,7 +20,7 @@ class Vote(commands.Cog):
             await ctx.send('あなたは人狼ではありません')
             return
         werewolfs =''
-        for w in self.bot.game.players.werewolfs.id:
+        for w in self.bot.game.players.werewolfs.memid:
             werewolfs = werewolfs + ' ' +w.role
         await ctx.send(f'この村の人狼は {werewolfs} です。')
     
