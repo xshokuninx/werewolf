@@ -64,8 +64,9 @@ class GameStatus(commands.Cog):
                 role='人狼'
             elif ranpas =='狐':
                 role='妖狐'
-            player.set_role(role)  
+            player.set_role(role)
             await user.send(f'あなたの役職は{role}です')
+            name = self.bot.get_user(player.id).display_name
             
 
         await ctx.send('-0日目夜-')
