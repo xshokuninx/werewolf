@@ -62,6 +62,10 @@ class GameStatus(commands.Cog):
                 role='霊媒師'
             elif ranpas =='ア':
                 role='人狼'
+            elif ranpas =='イ':
+                role='狂人'
+            elif ranpas =='ウ':
+                role='狂信者'
             elif ranpas =='狐':
                 role='妖狐'
             player.set_role(role)
