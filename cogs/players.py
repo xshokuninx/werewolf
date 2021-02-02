@@ -18,8 +18,8 @@ class PlayersCog(commands.Cog):
                 return await ctx.send("すでにゲームに参加しています。")
         player = Player(member.id)
         self.bot.game.players.append(player)
-        
-        player.set_name(member.mention)
+        name=member.mention
+        player.set_name(name)
         await ctx.send(f"{member.mention}さんが参加しました。")
         self.bot.game.playct += 1
 
