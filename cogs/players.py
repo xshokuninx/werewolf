@@ -19,7 +19,7 @@ class PlayersCog(commands.Cog):
         player = Player(member.id)
         self.bot.game.players.append(player)
         
-            player.set_name(member.mention)
+        player.set_name(member.mention)
         await ctx.send(f"{member.mention}さんが参加しました。")
         self.bot.game.playct += 1
 
