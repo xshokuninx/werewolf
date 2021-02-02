@@ -51,6 +51,11 @@ class Players(list):
         return Players(p for p in self if p.role == '人狼')
     
     @property
+    def kyosins(self) -> Players:
+        """狂信者(複数)"""
+        return Players(p for p in self if p.role == '狂信者')
+    
+    @property
     def most(self) -> Player:
         """最頻参加者"""
         aggregates = collections.Counter(self)
