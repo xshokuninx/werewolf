@@ -73,14 +73,14 @@ class PlayersCog(commands.Cog):
         await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
         
     @commands.command()
-    async def kyojin ctx):
+    async def kyojin(self, ctx):
         self.bot.game.casting = self.bot.game.casting + 'イ'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
         await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
         
     @commands.command()
-    async def kyoin ctx):
+    async def kyoin(self, ctx):
         self.bot.game.casting = self.bot.game.casting + 'ウ
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
