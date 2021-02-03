@@ -80,13 +80,12 @@ class GameStatus(commands.Cog):
     @commands.command()
     async def playerlist(self, ctx):
         if self.bot.game.time == 'noon':
-            await ctx.send('投票先は/voteに指定したい名前のまえにあるアルファベットをつけて入力してください(/voteAなど)')
+            await ctx.send('投票先は/voteに指定したい名前のまえにあるアルファベットをつけて入力してください(/vote 1 など)')
         elif self.bot.game.time == 'night':
-            await ctx.send('夜行動は/nightに指定したい名前のまえにあるアルファベットをつけて入力してください(/nightAなど)')
-        kariID='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        ct=0
+            await ctx.send('夜行動は/nightに指定したい名前のまえにあるアルファベットをつけて入力してください(/night 1 など)')
+        ct=1
         for p in self.bot.game.players.alives:
-            await ctx.send(f'{kariID[ct]} {p.name}({p.co})')
+            await ctx.send(f'{ct} {p.name}({p.co})')
             ct+=1
         
     
