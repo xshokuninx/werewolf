@@ -14,6 +14,11 @@ class Vote(commands.Cog):
             return False
         return True
     
+    """
+    @commands.command()
+    async def vote(self, ctx, arg):
+    """
+    
     @commands.command()
     async def wolflist(self, ctx):
         if self.bot.game.players.get(ctx.author.id).role != '人狼' and self.bot.game.players.get(ctx.author.id).role != '狂信者':
