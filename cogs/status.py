@@ -103,5 +103,17 @@ class GameStatus(commands.Cog):
         self.bot.game.raided = None
         self.bot.game.fortuned = None
         
+    @commands.command()
+    """仮　設定"""
+    async def tskip(self, ctx):
+        if self.bot.game.time == 'noon':
+            self.bot.game.time = 'night':
+            await ctx.send(f'{self.bot.game.days}日目 夜')
+        elif self.bot.game.time == 'night':
+            self.bot.game.time = 'noon':
+            self.bot.game.days += 1
+            await ctx.send(f'{self.bot.game.days}日目 昼')
+            
+        
 def setup(bot):
     bot.add_cog(GameStatus(bot))
