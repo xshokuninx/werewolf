@@ -84,8 +84,10 @@ class GameStatus(commands.Cog):
         elif self.bot.game.time == 'night':
             await ctx.send('夜行動は/nightに指定したい名前のまえにあるアルファベットをつけて入力してください(/nightAなど)')
         kariID='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        ct=0
         for p in self.bot.game.players.alives:
-            await ctx.send(f'{kariID[p]} {p.name}({p.co})')
+            await ctx.send(f'{kariID[ct]} {p.name}({p.co})')
+            ct+=1
         
     
     @commands.command()
