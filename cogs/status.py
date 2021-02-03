@@ -1,6 +1,7 @@
 import random
 from discord.ext import commands
 from cogs.utils.game import Game
+from cogs.utils.player import Players
 from cogs.utils.errors import PermissionNotFound, NotGuildChannel
 
 
@@ -75,6 +76,20 @@ class GameStatus(commands.Cog):
         await ctx.send('-0日目夜-')
         self.bot.game.status = 'playing'
         await ctx.send('ＧＭから配布された役職を確認し、翌日に備えてください.')
+        
+    @commands.command()
+    async def reset(self, ctx):
+        self.bot.game.casting =''
+        self.bot.game.castct = 0
+        self.bot.game.status = 'nothing'
+        self.bot.game.channel = None
+        self.bot.game.players = Players()
+        self.bot.game.playct = 0
+        self.bot.game.days = 0
+        self.bot.game.time = 'night'
+        self.bot.game.executed = None
+        self.bot.game.raided = None
+        self.bot.game.fortuned = None
         
 def setup(bot):
     bot.add_cog(GameStatus(bot))
