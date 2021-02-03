@@ -79,6 +79,14 @@ class GameStatus(commands.Cog):
     
     @commands.command()
     async def member(self, ctx):
+        if self.bot.game.time = 'noon':
+            await ctx.send('投票先は/noonに指定したい名前のまえにあるアルファベットをつけて入力してください(/noonAなど)')
+        elif self.bot.game.time = 'night':
+            await ctx.send('夜行動は/nightに指定したい名前のまえにあるアルファベットをつけて入力してください(/nightAなど)')
+        kariID='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        for p in self.bot.game.players.alives:
+            await ctx.send(f'{kariID[p]} {p.name}({p.co})')
+        
     
     @commands.command()
     async def reset(self, ctx):
