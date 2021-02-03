@@ -76,7 +76,10 @@ class GameStatus(commands.Cog):
         await ctx.send('-0日目夜-')
         self.bot.game.status = 'playing'
         await ctx.send('ＧＭから配布された役職を確認し、翌日に備えてください.')
-        
+    
+    @commands.command()
+    async def member(self, ctx):
+    
     @commands.command()
     async def reset(self, ctx):
         self.bot.game.casting =''
