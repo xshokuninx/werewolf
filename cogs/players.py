@@ -115,7 +115,7 @@ class PlayersCog(commands.Cog):
         player.set_co(co)
         
     @commands.command()
-    async def reibaiCO(self, ctx):
+    async def jinroCO(self, ctx):
         co='人狼CO'
         member = ctx.author
         player = Player(member.id)
