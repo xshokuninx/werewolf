@@ -94,6 +94,56 @@ class PlayersCog(commands.Cog):
         await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
         
     @commands.command()
+    async def murabitoCO(self, ctx):
+        co='村人CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def uranaiCO(self, ctx):
+        co='占いCO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def reibaiCO(self, ctx):
+        co='霊媒CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def reibaiCO(self, ctx):
+        co='人狼CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def kyojinCO(self, ctx):
+        co='狂人CO'
+        player.set_co(co)
+    
+    @commands.command()
+    async def kyosinCO(self, ctx):
+        co='狂信者CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def yokoCO(self, ctx):
+        co='妖狐CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def haitokuCO(self, ctx):
+        co='背徳者CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def kakusiroCO(self, ctx):
+        co='確白CO'
+        player.set_co(co)
+        
+    @commands.command()
+    async def kakukuroCO(self, ctx):
+        co='確黒CO'
+        player.set_co(co)
+    
+    @commands.command()
     async def resetb(self, ctx):
         self.role = '役無し'
         self.name = '名無し'
