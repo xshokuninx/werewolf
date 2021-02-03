@@ -17,7 +17,7 @@ class Player():
 
     def __init__(self, discord_id: int):
         self.id = discord_id
-        self.role = '村'
+        self.role = '役無し'
         self.name = '名無し'
         self.is_dead = False
         self.vote_target = None
