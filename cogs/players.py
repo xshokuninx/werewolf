@@ -99,7 +99,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def uranaiCO(self, ctx):
@@ -107,7 +107,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def reibaiCO(self, ctx):
@@ -115,7 +115,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def jinroCO(self, ctx):
@@ -123,7 +123,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def kyojinCO(self, ctx):
@@ -131,7 +131,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
     
     @commands.command()
     async def kyosinCO(self, ctx):
@@ -139,15 +139,14 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
-        
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
     @commands.command()
     async def yokoCO(self, ctx):
         co='妖狐CO'
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def haitokuCO(self, ctx):
@@ -155,7 +154,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def kakusiroCO(self, ctx):
@@ -163,7 +162,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
         
     @commands.command()
     async def kakukuroCO(self, ctx):
@@ -171,7 +170,7 @@ class PlayersCog(commands.Cog):
         member = ctx.author
         player = Player(member.id)
         player.set_co(co)
-        await ctx.send(f"{member.mention}さんが{co}しました。")
+        await ctx.send(f"{player.name}さんが{player.co}しました。")
     
     @commands.command()
     async def resetb(self, ctx):
