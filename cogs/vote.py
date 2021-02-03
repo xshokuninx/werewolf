@@ -18,7 +18,10 @@ class Vote(commands.Cog):
     @commands.command()
     async def vote(self, ctx, arg):
     """
-    
+    """
+    async def tohyo(self, ctx):
+        if not self.bot.game.is_set_target():
+    """
     @commands.command()
     async def wolflist(self, ctx):
         if self.bot.game.players.get(ctx.author.id).role != '人狼' and self.bot.game.players.get(ctx.author.id).role != '狂信者':
