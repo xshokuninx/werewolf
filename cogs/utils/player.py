@@ -19,6 +19,7 @@ class Player():
         self.id = discord_id
         self.role = '役無し'
         self.name = '名無し'
+        self.co = 'CO無し'
         self.is_dead = False
         self.vote_target = None
         self.raid_target = None
