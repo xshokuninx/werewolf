@@ -92,6 +92,16 @@ class PlayersCog(commands.Cog):
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
         await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
+    async def resetb(self, ctx):
+        self.id = discord_id
+        self.role = '役無し'
+        self.name = '名無し'
+        self.is_dead = False
+        self.vote_target = None
+        self.raid_target = None
+        self.fortune_target = None
 
 
 def setup(bot):
