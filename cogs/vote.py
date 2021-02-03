@@ -17,10 +17,13 @@ class Vote(commands.Cog):
     """
     @commands.command()
     async def vote(self, ctx, arg):
+        if self.bot.game.votevisible == 'on':
+            await ctx.send(f'')
     """
     """
     async def tohyo(self, ctx):
         if not self.bot.game.is_set_target():
+            return
     """
     @commands.command()
     async def wolflist(self, ctx):
