@@ -16,6 +16,7 @@ class Game():
         executed (Optional[Player]): 処刑されたプレイヤー
         raided (Optional[Player]): 襲撃されたプレイヤー
         fortuned (Optional[str]): 占いされたプレイヤー
+        
     """
 
     def __init__(self):
@@ -30,6 +31,7 @@ class Game():
         self.executed = None
         self.raided = None
         self.fortuned = None
+        self.votevisible = 'on'
         
     def is_set_vote(self) -> bool:
         """全員が指定完了しているか"""
