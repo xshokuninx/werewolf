@@ -30,7 +30,7 @@ class Player():
         return self
     
     def set_co(self, co: str):
-        self.co = co
+        self.name = co
         return self
     
     def set_name(self, name: str):
