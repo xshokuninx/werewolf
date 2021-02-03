@@ -29,6 +29,10 @@ class Player():
         self.role = role
         return self
     
+    def set_co(self, co: str):
+        self.co = co
+        return self
+    
     def set_name(self, name: str):
         self.name = name
         return self
