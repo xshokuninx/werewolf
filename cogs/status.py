@@ -78,7 +78,7 @@ class GameStatus(commands.Cog):
         await ctx.send('ＧＭから配布された役職を確認し、翌日に備えてください.')
     
     @commands.command()
-    async def member(self, ctx):
+    async def playerlist(self, ctx):
         if self.bot.game.time == 'noon':
             await ctx.send('投票先は/noonに指定したい名前のまえにあるアルファベットをつけて入力してください(/noonAなど)')
         elif self.bot.game.time == 'night':
