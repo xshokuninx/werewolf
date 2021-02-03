@@ -95,7 +95,6 @@ class PlayersCog(commands.Cog):
         
     @commands.command()
     async def resetb(self, ctx):
-        self.id = discord_id
         self.role = '役無し'
         self.name = '名無し'
         self.is_dead = False
