@@ -41,6 +41,6 @@ class Game():
     def is_set_vote(self) -> bool:
         """全員が指定完了しているか"""
         for p in self.players.alives:
-            if p.vote_target[self.days] is None:
+            if p.vote_target is None:
                 return False
         return True
