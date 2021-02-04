@@ -15,7 +15,7 @@ class Vote(commands.Cog):
         return True
     
     async def night_shift(self, ctx):
-        if not self.bot.game.is_set_target():
+        if not self.bot.game.is_set_vote():
             return
         guild = self.bot.game.channel.guild
         self.bot.game.execute()
