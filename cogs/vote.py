@@ -18,9 +18,24 @@ class Vote(commands.Cog):
         if not self.bot.game.is_set_vote():
             return
         guild = self.bot.game.channel.guild
-        self.bot.game.execute()
-        executed = guild.get_member(self.bot.game.executed.id)
-        await self.bot.game.channel.send(f'投票の結果 {executed.display_name} さんが処刑されました')
+        
+        """ 投票先判定 """
+        tohyoct=[0]*self.bot.game.playct+1
+        for p in self.bot.game.players.alives:
+            hiplay=0
+            for q in self.bot.game.players.alives:
+                if p.vote_target == q.id:
+                    tohyoct[hiplay]+=1
+                    hiplay+=1
+        maxhyo=0
+        maxplay=None
+        for num in range(self.bot.game.playct+1):
+            if maxhyo < tohyoct[num]:
+                maxhyo = tohyoct[num]
+                maxplay=str(num)
+            elif maxhyo == tohyoct[num]:
+                maxplay += str(num)
+        await self.bot.game.channel.send(f'投票の結果 {maxplay} さんが処刑されました')
     
     @commands.command()
     async def vote(self, ctx, arg):
