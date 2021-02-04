@@ -94,6 +94,13 @@ class PlayersCog(commands.Cog):
         await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
         
     @commands.command()
+    async def haitoku(self, ctx):
+        self.bot.game.casting = self.bot.game.casting + '背'
+        self.bot.game.castct += 1
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
+        await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
     async def murabitoCO(self, ctx):
         co='村人CO'
         player = self.bot.game.players.get(ctx.author.id)
