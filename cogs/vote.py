@@ -17,12 +17,10 @@ class Vote(commands.Cog):
     async def night_shift(self, ctx):
         if not self.bot.game.is_set_target():
             return
-        
         guild = self.bot.game.channel.guild
         self.bot.game.execute()
         executed = guild.get_member(self.bot.game.executed.id)
-        text = f'投票の結果 {executed.display_name} さんが処刑されました'
-        await self.bot.game.channel.send(text)
+        await self.bot.game.channel.send(f'投票の結果 {executed.display_name} さんが処刑されました')
     
     @commands.command()
     async def vote(self, ctx, arg):
