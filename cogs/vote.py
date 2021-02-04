@@ -32,11 +32,7 @@ class Vote(commands.Cog):
         elif tflg == Flase:
             await ctx.send(f'正しく相手を選択してください')
     
-    """
-    async def tohyo(self, ctx):
-        if not self.bot.game.is_set_target():
-            return
-    """
+    
     @commands.command()
     async def wolflist(self, ctx):
         if self.bot.game.players.get(ctx.author.id).role != '人狼' and self.bot.game.players.get(ctx.author.id).role != '狂信者':
