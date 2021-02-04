@@ -51,6 +51,7 @@ class Vote(commands.Cog):
                     votename=r.name
                 hiplay+=1
             await self.bot.game.channel.send(f'投票の結果 最多票の中から抽選で　{votename} さんが処刑されました')
+        self.bot.game.players.get(voteid).die()
     
     @commands.command()
     async def vote(self, ctx, arg):
