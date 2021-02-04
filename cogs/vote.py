@@ -34,7 +34,7 @@ class Vote(commands.Cog):
                 maxhyo = tohyoct[num]
                 maxplay=str(num)
             elif maxhyo == tohyoct[num]:
-                maxplay += str(num)
+                maxplay = maxplay + str(num)
         if len(maxplay) == 1:
             hiplay=1
             for r in self.bot.game.players.alives:
