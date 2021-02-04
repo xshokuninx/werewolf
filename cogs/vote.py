@@ -28,7 +28,7 @@ class Vote(commands.Cog):
                     tohyoct[hiplay]+=1
                     hiplay+=1
         maxhyo=0
-        maxplay=None
+        maxplay=''
         for num in range(self.bot.game.playct+1):
             if maxhyo < tohyoct[num]:
                 maxhyo = tohyoct[num]
