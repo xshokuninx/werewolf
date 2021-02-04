@@ -20,6 +20,7 @@ class Vote(commands.Cog):
         tohyosya=self.bot.game.players.get(ctx.author.id).name
         ct=1
         tflg=False
+        tflg=True
         for p in self.bot.game.players.alives:
             if ct == arg:
                 hitohyosya=p.name
