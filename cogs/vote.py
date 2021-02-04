@@ -32,7 +32,7 @@ class Vote(commands.Cog):
             if ct == int(arg):
                 hitohyosya=p.name
                 tflg=True
-                self.bot.game.players.get(ctx.author.id).vote_target[self.days] =p.id
+                self.bot.game.players.get(ctx.author.id).vote_target[self.bot.game.days] =p.id
         if tflg == True:
             if self.bot.game.votevisible == 'on':
                 await self.bot.game.channel.send(f'{tohyosya}が{hitohyosya}に投票しました。')
