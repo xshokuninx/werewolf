@@ -52,10 +52,10 @@ class Vote(commands.Cog):
                 hiplay+=1
             await self.bot.game.channel.send(f'投票の結果 最多票の中から抽選で　{votename} さんが処刑されました')
         self.bot.game.players.get(voteid).die()
-        """ 夜になる前の行動 """
+        """ 夜になる前の行動 
         self.bot.game.time = 'night'
-            await  self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
-        """勝敗 各プレイヤーへの送信"""
+            await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
+        勝敗 各プレイヤーへの送信"""
     
     @commands.command()
     async def vote(self, ctx, arg):
