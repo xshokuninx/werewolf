@@ -65,11 +65,6 @@ class Players(list):
         """狂信者(複数)"""
         return Players(p for p in self if p.role == '狂信者')
     
-    @property
-    def most(self) -> Player:
-        """最頻参加者"""
-        return Player
-    
     def get(self, player_id) -> Player:
         for p in self:
             if p.id == player_id:
