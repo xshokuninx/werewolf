@@ -25,6 +25,11 @@ class Player():
         self.raid_target = None
         self.fortune_target = None
     
+    def die(self):
+        """死亡する"""
+        self.is_dead = True
+        return self
+    
     def set_role(self, role: str):
         self.role = role
         return self
