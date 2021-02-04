@@ -18,11 +18,11 @@ class Vote(commands.Cog):
     @commands.command()
     async def vote(self, ctx, arg):
         tohyosya=self.bot.game.players.get(ctx.author.id).name
-        ct=1
+        ct=0
         tflg=False
-        tflg=True
         for p in self.bot.game.players.alives:
-            if ct == arg:
+            ct+=1
+            if ct == int(arg):
                 hitohyosya=p.name
                 tflg=True
         if tflg == True:
@@ -31,7 +31,7 @@ class Vote(commands.Cog):
             elif self.bot.game.votevisible == 'off':
                 await ctx.send(f'{tohyosya}が 投票しました。')
         elif tflg == False:
-            await ctx.send(f'{ct} {arg}はエラーです。正しく相手を選択してください')
+            await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
     
     
     @commands.command()
