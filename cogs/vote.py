@@ -54,9 +54,8 @@ class Vote(commands.Cog):
         self.bot.game.players.get(voteid).die()
         """ 夜になる前の行動 """
         self.bot.game.time = 'night'
-            await ctx.send(f'{self.bot.game.days}日目 夜')
-        ### 勝敗
-        ### 各プレイヤーへの送信
+            await  self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
+        """勝敗 各プレイヤーへの送信"""
     
     @commands.command()
     async def vote(self, ctx, arg):
