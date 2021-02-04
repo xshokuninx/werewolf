@@ -20,7 +20,7 @@ class Vote(commands.Cog):
         guild = self.bot.game.channel.guild
         
         """ 投票先判定 """
-        tohyoct=[0]
+        tohyoct=[0]*(int(self.bot.game.playct)+1)
         for p in self.bot.game.players.alives:
             hiplay=0
             for q in self.bot.game.players.alives:
