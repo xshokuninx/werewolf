@@ -69,7 +69,7 @@ class GameStatus(commands.Cog):
                 role='狂信者'
             elif ranpas =='狐':
                 role='妖狐'
-            elif ranpas =='背'
+            elif ranpas =='背':
                 role='背徳者'
             player.set_role(role)
             await user.send(f'あなたの役職は{role}です')
