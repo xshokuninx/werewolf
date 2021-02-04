@@ -27,9 +27,9 @@ class Vote(commands.Cog):
                 tflg=True
         if tflg == True:
             if self.bot.game.votevisible == 'on':
-                await ctx.send(f'{tohyosya}が{hitohyosya}に投票しました。')
+                await self.bot.game.channel.send(f'{tohyosya}が{hitohyosya}に投票しました。')
             elif self.bot.game.votevisible == 'off':
-                await ctx.send(f'{tohyosya}が 投票しました。')
+                await self.bot.game.channel.send(f'{tohyosya}が 投票しました。')
         elif tflg == False:
             await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
     
