@@ -14,12 +14,24 @@ class Vote(commands.Cog):
             return False
         return True
     
-    """
+    
     @commands.command()
     async def vote(self, ctx, arg):
-        if self.bot.game.votevisible == 'on':
-            await ctx.send(f'')
-    """
+        tohyosya=self.bot.game.players.get(ctx.author.id).name
+        ct=1
+        tflg=False
+        for p in self.bot.game.players.alives:
+            if ct == arg
+            hitohyosya=p.name
+            tflg=True
+        if tflg == True:
+            if self.bot.game.votevisible == 'on':
+                await ctx.send(f'{tohyosya}が{hitohyosya}に投票しました。')
+            elif self.bot.game.votevisible == 'off':
+                await ctx.send(f'{tohyosya}が 投票しました。')
+        elif tflg == Flase:
+            await ctx.send(f'正しく相手を選択してください')
+    
     """
     async def tohyo(self, ctx):
         if not self.bot.game.is_set_target():
