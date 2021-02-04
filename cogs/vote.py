@@ -29,7 +29,7 @@ class Vote(commands.Cog):
                 await ctx.send(f'{tohyosya}が{hitohyosya}に投票しました。')
             elif self.bot.game.votevisible == 'off':
                 await ctx.send(f'{tohyosya}が 投票しました。')
-        elif tflg == Flase:
+        elif tflg == False:
             await ctx.send(f'正しく相手を選択してください')
     
     
