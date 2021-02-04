@@ -14,6 +14,15 @@ class Vote(commands.Cog):
             return False
         return True
     
+    async def night_shift(self, ctx):
+        if not self.bot.game.is_set_target():
+            return
+        
+        guild = self.bot.game.channel.guild
+        self.bot.game.execute()
+        executed = guild.get_member(self.bot.game.executed.id)
+        text = f'投票の結果 {executed.display_name} さんが処刑されました'
+        await self.bot.game.channel.send(text)
     
     @commands.command()
     async def vote(self, ctx, arg):
@@ -25,13 +34,17 @@ class Vote(commands.Cog):
             if ct == int(arg):
                 hitohyosya=p.name
                 tflg=True
+                self.bot.game.players.get(ctx.author.id).vote_target =p.id
         if tflg == True:
             if self.bot.game.votevisible == 'on':
                 await self.bot.game.channel.send(f'{tohyosya}が{hitohyosya}に投票しました。')
             elif self.bot.game.votevisible == 'off':
-                await self.bot.game.channel.send(f'{tohyosya}が 投票しました。')
+                await self.bot.game.channel.send(f'{tohyosya}が投票しました。')
+            await self.night_shift(ctx)
         elif tflg == False:
             await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
+            
+            
     
     
     @commands.command()
