@@ -22,7 +22,7 @@ class Vote(commands.Cog):
         """ 投票先判定 """
         tohyoct=[0]*(int(self.bot.game.playct)+1)
         for p in self.bot.game.players.alives:
-            hiplay=0
+            hiplay=1
             for q in self.bot.game.players.alives:
                 if p.vote_target == q.id:
                     tohyoct[hiplay]+=1
@@ -35,7 +35,22 @@ class Vote(commands.Cog):
                 maxplay=str(num)
             elif maxhyo == tohyoct[num]:
                 maxplay += str(num)
-        await self.bot.game.channel.send(f'投票の結果 {maxplay} さんが処刑されました')
+        if len(maxplay) == 1:
+            hiplay=1
+            for r in self.bot.game.players.alives:
+                if int(maxplay) == hiplay:
+                    voteid=r.id
+                    votename=r.name
+                hiplay+=1
+            await self.bot.game.channel.send(f'投票の結果最多票の {votename} さんが処刑されました')
+        elif len(maxplay) < 1:
+            maxplay = random.choice(maxplay)
+            for r in self.bot.game.players.alives:
+                if int(maxplay) == hiplay:
+                    voteid=r.id
+                    votename=r.name
+                hiplay+=1
+            await self.bot.game.channel.send(f'投票の結果 最多票の中から抽選で　{votename} さんが処刑されました')
     
     @commands.command()
     async def vote(self, ctx, arg):
