@@ -22,8 +22,8 @@ class Vote(commands.Cog):
         tflg=False
         for p in self.bot.game.players.alives:
             if ct == arg
-            hitohyosya=p.name
-            tflg=True
+                hitohyosya=p.name
+                tflg=True
         if tflg == True:
             if self.bot.game.votevisible == 'on':
                 await ctx.send(f'{tohyosya}が{hitohyosya}に投票しました。')
