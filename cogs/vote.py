@@ -21,7 +21,7 @@ class Vote(commands.Cog):
         ct=1
         tflg=False
         for p in self.bot.game.players.alives:
-            if ct == arg
+            if ct == arg:
                 hitohyosya=p.name
                 tflg=True
         if tflg == True:
