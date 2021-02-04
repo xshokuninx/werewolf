@@ -33,11 +33,6 @@ class Game():
         self.fortuned = None
         self.votevisible = 'on'
     
-    def execute(self) -> Player:
-        """処刑処理"""
-        self.executed = self.players.votes.most.die()
-        return self
-    
     def is_set_vote(self) -> bool:
         """全員が指定完了しているか"""
         for p in self.players.alives:
