@@ -68,10 +68,7 @@ class Players(list):
     @property
     def most(self) -> Player:
         """最頻参加者"""
-        aggregates = collections.Counter(self)
-        maximum = max(aggregates.values())
-        mosts = [a[0] for a in aggregates.most_common() if a[1] == maximum]
-        return random.choice(mosts)
+        return Player
     
     def get(self, player_id) -> Player:
         for p in self:
