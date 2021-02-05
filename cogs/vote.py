@@ -16,7 +16,6 @@ class Vote(commands.Cog):
         return True
     
     async def winflg(self, ctx):
-        await self.bot.game.channel.send('勝利判定')
         village_count = 0
         werewolf_count = 0
         yokoflg = 0
