@@ -42,8 +42,89 @@ class Vote(commands.Cog):
         elif werewolf_count >= village_count:
             await self.bot.game.channel.send('人狼が村人より多いため、人狼陣営の勝利です！')
             return
-            
+    
+    async def noon_shift(self, ctx):
+        """夜行動処理"""
+        if not self.bot.game.is_set_vote():
+            return
+        diect=[0]*(int(self.bot.game.playct)+1)
+        i = 0
         
+        """占い師"""
+        for p in self.bot.game.players.alives.uranais:
+            user = self.bot.get_user(p.id)
+            uranaisaki = p.night_target
+            role = self.bot.get_user(uranaisaki.id).role
+            if role == '人狼':
+                await user.send(f'{uranaisaki.name}さんは人狼です')
+            elif role == '妖狐':
+                i+=1
+                diect[i] =uranaisaki.id
+                self.bot.get_user(uranaisaki.id).die()
+                yokoflg=0
+                for p in self.bot.game.players.alives.yokos:
+                    yokoflg=1
+                if yokoflg == 0:
+                    for p in self.bot.game.players.alives.haitokus:
+                        self.bot.game.players.get(p.id).die()
+                        i+=1
+                        diect[i] =p.name
+                await user.send(f'{uranaisaki.name}さんは人狼ではありません')
+            else:
+                await user.send(f'{uranaisaki.name}さんは人狼ではありません')
+        
+        """人狼"""
+        guild = self.bot.game.channel.guild
+        tohyoct=[0]*(int(self.bot.game.playct)+1)
+        for p in self.bot.game.players.alives:
+            hiplay=1
+            for q in self.bot.game.players.alives:
+                if p.night_target == q.id:
+                    tohyoct[hiplay]+=1
+                hiplay+=1
+        maxhyo=0
+        maxplay=''
+        for num in range(self.bot.game.playct):
+            nums=num+1
+            if maxhyo < tohyoct[nums]:
+                maxhyo = tohyoct[nums]
+                maxplay=str(nums)
+            elif maxhyo == tohyoct[nums]:
+                maxplay = maxplay + str(nums)
+        if len(maxplay) == 1:
+            hiplay=1
+            for r in self.bot.game.players.alives:
+                if int(maxplay) == hiplay:
+                    voteid=r.id
+                    votename=r.name
+                hiplay+=1
+        else:
+            hiplay=1
+            maxplay = random.choice(maxplay)
+            for r in self.bot.game.players.alives:
+                if int(maxplay) == hiplay:
+                    voteid=r.id
+                    votename=r.name
+                hiplay+=1
+        self.bot.game.players.get(voteid).die()
+        i+=1
+        diect[i] =voteid.name
+        random.shuffle(diect)
+        for s in range(i):
+            await self.bot.game.channel.send(f'{diect[i+1]}さんが無残な姿で発見されました')
+        for b in self.bot.game.players:
+            b.night_target = None
+        await self.noonck(ctx)
+        await self.winflg(ctx)
+    
+    async def noonck(self, ctx):
+        """ 朝になる前の行動"""
+        self.bot.game.time = 'noon'
+            self.bot.game.days += 1
+            await self.bot.game.channel.send(f'{self.bot.game.days}日目 昼')
+        
+        
+    
     async def nightck(self, ctx):
         """ 夜になる前の行動"""
         self.bot.game.time = 'night'
@@ -113,9 +194,37 @@ class Vote(commands.Cog):
     
     @commands.command()
     async def yoru(self, ctx, arg):
+        if self.bot.game.time != 'night' and self.bot.game.status != 'playing':
+            await ctx.send('ただいま夜時間ではないので投票できません')
+            return
         if self.bot.game.players.get(ctx.author.id).is_dead == True:
             await ctx.send('あなたは死亡しているので行動できません')
             return
+        if self.bot.game.players.get(ctx.author.id).is_dead == True:
+            await ctx.send('あなたは行動しているので行動できません')
+            return
+        tohyosya=self.bot.game.players.get(ctx.author.id).name
+        role = self.bot.game.players.get(ctx.author.id).name
+        if role == '人狼':
+            come = '襲撃先'
+        elif role == '占い師':
+            come = '占い先'
+        else:
+            come = '怪しい人'
+        ct=0
+        tflg=False
+        for p in self.bot.game.players.alives:
+            ct+=1
+            if ct == int(arg):
+                hitohyosya=p.name
+                tflg=True
+                self.bot.game.players.get(ctx.author.id).night_target = p.id
+        if tflg == True:
+            await ctx.send(f'{hitohyosya}を{come}として認証しました')
+            await self.noon_shift(ctx)
+        elif tflg == False:
+            await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
+        
         
     @commands.command()
     async def vote(self, ctx, arg):
