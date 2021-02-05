@@ -104,7 +104,7 @@ class Vote(commands.Cog):
         sendname = self.bot.game.players.get(ctx.author.id).name
         await self.bot.game.channel.send('アオォォォォォォン')
         for w in self.bot.game.players.werewolfs:
-            user = w.id
+            user = self.bot.get_user(w.id)
             await user.send(f'({sendname}){arg}')
         
     
