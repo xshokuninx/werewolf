@@ -40,3 +40,10 @@ class Game():
             if p.vote_target is None:
                 return False
         return True
+    
+    def is_set_night(self) -> bool:
+        """全員が指定完了しているか"""
+        for p in self.players.alives:
+            if p.night_target is None:
+                return False
+        return True
