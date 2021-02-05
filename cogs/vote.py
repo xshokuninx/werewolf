@@ -76,7 +76,7 @@ class Vote(commands.Cog):
         """人狼"""
         guild = self.bot.game.channel.guild
         tohyoct=[0]*(int(self.bot.game.playct)+1)
-        for p in self.bot.game.players.alives:
+        for p in self.bot.game.players.alives.werewolfs:
             hiplay=1
             for q in self.bot.game.players.alives:
                 if p.night_target == q.id:
