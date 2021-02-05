@@ -62,6 +62,11 @@ class Players(list):
         return Players(p for p in self if p.role == '人狼')
     
     @property
+    def uranais(self) -> Players:
+        """占い師(複数)"""
+        return Players(p for p in self if p.role == '占い師')
+    
+    @property
     def kyosins(self) -> Players:
         """狂信者(複数)"""
         return Players(p for p in self if p.role == '狂信者')
