@@ -256,7 +256,15 @@ class Vote(commands.Cog):
             await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
             
             
-    
+    @commands.command()
+    async def foxlist(self, ctx):
+        if self.bot.game.players.get(ctx.author.id).role != '背徳者':
+            await ctx.send('この村の妖狐は [********] です。')
+            return
+        foxs =''
+        for w in self.bot.game.players.yokos:
+            foxs = foxs + ' ' +w.name
+        await ctx.send(f'この村の妖狐は [{foxs}] です。')
     
     @commands.command()
     async def wolflist(self, ctx):
