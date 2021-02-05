@@ -34,7 +34,7 @@ class Vote(commands.Cog):
             for q in self.bot.game.players.alives:
                 if p.vote_target == q.id:
                     tohyoct[hiplay]+=1
-                    hiplay+=1
+                hiplay+=1
         maxhyo=0
         maxplay=''
         for num in range(self.bot.game.playct):
