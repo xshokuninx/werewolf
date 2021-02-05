@@ -116,7 +116,7 @@ class Vote(commands.Cog):
             diect[i] =votename
         random.shuffle(diect)
         for s in range(i):
-            await self.bot.game.channel.send(f'{diect[i+1]}さんが無残な姿で発見されました')
+            await self.bot.game.channel.send(f'{diect[s+1]}さんが無残な姿で発見されました')
         for b in self.bot.game.players:
             b.night_target = None
         await self.noonck(ctx)
