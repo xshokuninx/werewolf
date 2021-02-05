@@ -101,7 +101,11 @@ class Vote(commands.Cog):
         if self.bot.game.players.get(ctx.author.id).role != '人狼' and self.bot.game.players.get(ctx.author.id).role != '狂信者':
             await ctx.send('あなたは狼語を話せません。')
             return
+        sendname = self.bot.game.players.get(ctx.author.id).name
         await self.bot.game.channel.send('アオォォォォォォン')
+        for w in self.bot.game.players.werewolfs:
+            user = w.id
+            await user.send(f'({sendname}){arg}')
         
     
 def setup(bot):
