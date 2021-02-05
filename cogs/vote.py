@@ -58,8 +58,9 @@ class Vote(commands.Cog):
                 if p.night_target == q.id:                  
                     uranaisaki = q.id
                     role = q.role
+                    uraname =q.name
             if role == '人狼':
-                await user.send(f'{uranaisaki.name}さんは人狼です')
+                await user.send(f'{uraname}さんは人狼です')
             elif role == '妖狐':
                 i+=1
                 diect[i] =uranaisaki.id
@@ -72,9 +73,9 @@ class Vote(commands.Cog):
                         self.bot.game.players.get(p.id).die()
                         i+=1
                         diect[i] =p.name
-                await user.send(f'{uranaisaki.name}さんは人狼ではありません')
+                await user.send(f'{uraname}さんは人狼ではありません')
             else:
-                await user.send(f'{uranaisaki.name}さんは人狼ではありません')
+                await user.send(f'{uraname}さんは人狼ではありません')
         
         """人狼"""
         guild = self.bot.game.channel.guild
