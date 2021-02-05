@@ -106,6 +106,9 @@ class Vote(commands.Cog):
         for w in self.bot.game.players.werewolfs:
             user = self.bot.get_user(w.id)
             await user.send(f'({sendname}){arg}')
+        for p in self.bot.game.players.kyosins:
+            user = self.bot.get_user(p.id)
+            await user.send(f'({sendname}){arg}')
         
     
 def setup(bot):
