@@ -55,6 +55,7 @@ class Vote(commands.Cog):
                 hiplay+=1
             await self.bot.game.channel.send(f'投票の結果最多票の {votename} さんが処刑されました')
         elif len(maxplay) > 1:
+            hiplay=1
             maxplay = random.choice(maxplay)
             for r in self.bot.game.players.alives:
                 if int(maxplay) == hiplay:
