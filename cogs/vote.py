@@ -17,7 +17,6 @@ class Vote(commands.Cog):
     
     async def winflg(self, ctx):
         await self.bot.game.channel.send('勝利判定')
-       """
         village_count = 0
         werewolf_count = 0
         yokoflg = 0
@@ -35,18 +34,18 @@ class Vote(commands.Cog):
         elif werewolf_count >= village_count and yokoflg == 1:
             await self.bot.game.channel.send('人狼が村人より多く、妖狐が生存しているため妖狐陣営の勝利です！')
             return
-        elif werewolf_count == 0 and yokoflg == 1:
+        elif werewolf_count == 0:
             await self.bot.game.channel.send('人狼が全滅したため、村人陣営の勝利です！')
             return
         elif werewolf_count >= village_count:
             await self.bot.game.channel.send('人狼が村人より多いため、人狼陣営の勝利です！')
             return
-            """
+            
         
     async def nightck(self, ctx):
         """ 夜になる前の行動"""
         self.bot.game.time = 'night'
-        if await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
+        await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
         
         yokoflg=0
         for p in self.bot.game.players.alives.yokos:
