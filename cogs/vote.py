@@ -194,7 +194,7 @@ class Vote(commands.Cog):
     
     @commands.command()
     async def yoru(self, ctx, arg):
-        if self.bot.game.time != 'night' and self.bot.game.status != 'playing':
+        if self.bot.game.time != 'night' or self.bot.game.status != 'playing':
             await ctx.send('ただいま夜時間ではないので投票できません')
             return
         if self.bot.game.players.get(ctx.author.id).is_dead == True:
@@ -228,7 +228,7 @@ class Vote(commands.Cog):
         
     @commands.command()
     async def vote(self, ctx, arg):
-        if self.bot.game.time != 'noon' and self.bot.game.status != 'playing':
+        if self.bot.game.time != 'noon' or self.bot.game.status != 'playing':
             await ctx.send('ただいま投票時間ではないので投票できません')
             return
         if self.bot.game.players.get(ctx.author.id).is_dead == True:
