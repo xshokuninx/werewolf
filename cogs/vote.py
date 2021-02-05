@@ -46,7 +46,7 @@ class Vote(commands.Cog):
                 maxplay = maxplay + str(nums)
         if len(maxplay) == 1:
             hiplay=1
-            await self.bot.game.channel.send(f'{maxplay}')
+            await self.bot.game.channel.send(f'{tohyoct[0]} {tohyoct[1]} {tohyoct[2]}')
             for r in self.bot.game.players.alives:
                 if int(maxplay) == hiplay:
                     voteid=r.id
