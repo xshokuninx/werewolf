@@ -113,7 +113,7 @@ class Vote(commands.Cog):
     
     @commands.command()
     async def vote(self, ctx, arg):
-        if self.bot.game.players.get(ctx.author.id).is_dead == True
+        if self.bot.game.players.get(ctx.author.id).is_dead == True:
             await ctx.send('あなたは死亡しているので投票できません')
             return
         tohyosya=self.bot.game.players.get(ctx.author.id).name
