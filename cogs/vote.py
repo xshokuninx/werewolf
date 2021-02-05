@@ -15,7 +15,7 @@ class Vote(commands.Cog):
         return True
     
     async def winflg(self, ctx):
-        await ctx.send('勝利判定')
+        await self.bot.game.channel.send('勝利判定')
         
     async def nightck(self, ctx):
         """ 夜になる前の行動""" 
