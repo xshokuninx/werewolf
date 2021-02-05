@@ -17,7 +17,7 @@ class Vote(commands.Cog):
     async def winflg(self, ctx):
         await ctx.send('勝利判定')
         
-    async def naightck(self, ctx):
+    async def nightck(self, ctx):
         """ 夜になる前の行動""" 
         self.bot.game.time = 'night'
         await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
@@ -61,8 +61,8 @@ class Vote(commands.Cog):
             await self.bot.game.channel.send(f'投票の結果 最多票の中から抽選で　{votename} さんが処刑されました')
         self.bot.game.players.get(voteid).die()
         """勝敗 各プレイヤーへの送信"""
-        await naightck(ctx)
-        await winflg(ctx)
+        await self.nightck(ctx)
+        await self.winflg(ctx)
     
     @commands.command()
     async def vote(self, ctx, arg):
