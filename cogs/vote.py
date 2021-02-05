@@ -112,7 +112,16 @@ class Vote(commands.Cog):
         await self.winflg(ctx)
     
     @commands.command()
+    async def yoru(self, ctx, arg):
+        if self.bot.game.players.get(ctx.author.id).is_dead == True:
+            await ctx.send('あなたは死亡しているので行動できません')
+            return
+        
+    @commands.command()
     async def vote(self, ctx, arg):
+        if self.bot.game.time != 'noon' and self.bot.game.status != 'playing':
+            await ctx.send('ただいま投票時間ではないので投票できません')
+            return
         if self.bot.game.players.get(ctx.author.id).is_dead == True:
             await ctx.send('あなたは死亡しているので投票できません')
             return
