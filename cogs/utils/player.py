@@ -11,8 +11,8 @@ class Player():
         role (str): 役職名
         is_dead (bool): 死亡しているか
         vote_target (Optional[Player]): 投票指定した参加者
-        raid_target (Optional[Player]): 襲撃指定した参加者
-        fortune_target (Optional[Player]): 占い指定した参加者
+        raid_target (Optional[Player]): 襲撃指定した参加者(使わない)
+        fortune_target (Optional[Player]): 占い指定した参加者(使わない)
     """
 
     def __init__(self, discord_id: int):
@@ -24,6 +24,7 @@ class Player():
         self.vote_target = None
         self.raid_target = None
         self.fortune_target = None
+        self.yoru_target =None
     
     def die(self):
         """死亡する"""
