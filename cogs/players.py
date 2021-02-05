@@ -40,12 +40,20 @@ class PlayersCog(commands.Cog):
     
     @commands.command()
     async def casting(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = ''
         self.bot.game.castct =0
         
         
     @commands.command()
     async def murabito(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = self.bot.game.casting + 'あ'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
@@ -53,6 +61,10 @@ class PlayersCog(commands.Cog):
         
     @commands.command()
     async def uranaishi(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = self.bot.game.casting + 'い'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
@@ -67,6 +79,10 @@ class PlayersCog(commands.Cog):
         
     @commands.command()
     async def jinro(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = self.bot.game.casting + 'ア'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
@@ -74,6 +90,10 @@ class PlayersCog(commands.Cog):
         
     @commands.command()
     async def kyojin(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = self.bot.game.casting + 'イ'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
@@ -81,6 +101,10 @@ class PlayersCog(commands.Cog):
         
     @commands.command()
     async def kyosin(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = self.bot.game.casting + 'ウ'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
@@ -95,6 +119,10 @@ class PlayersCog(commands.Cog):
         
     @commands.command()
     async def haitoku(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
         self.bot.game.casting = self.bot.game.casting + '背'
         self.bot.game.castct += 1
         await ctx.send(f"今の配役:{self.bot.game.casting}")
