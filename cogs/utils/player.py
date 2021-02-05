@@ -70,6 +70,11 @@ class Players(list):
         """霊媒師(複数)"""
         return Players(p for p in self if p.role == '霊媒師')
     
+    @property
+    def haitokus(self) -> Players:
+        """背徳者(複数)"""
+        return Players(p for p in self if p.role == '背徳者')
+    
     def get(self, player_id) -> Player:
         for p in self:
             if p.id == player_id:
