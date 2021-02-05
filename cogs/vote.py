@@ -34,6 +34,9 @@ class Vote(commands.Cog):
         elif werewolf_count >= village_count and yokoflg == 1:
             await self.bot.game.channel.send('人狼が村人より多く、妖狐が生存しているため妖狐陣営の勝利です！')
             return
+        elif werewolf_count == 0 and village_count == 0 and yokoflg == 0:
+            await self.bot.game.channel.send('全滅したため引き分けです!')
+            return
         elif werewolf_count == 0:
             await self.bot.game.channel.send('人狼が全滅したため、村人陣営の勝利です！')
             return
