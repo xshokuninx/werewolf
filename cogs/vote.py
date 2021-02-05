@@ -110,9 +110,10 @@ class Vote(commands.Cog):
                     voteid=r.id
                     votename=r.name
                 hiplay+=1
-        self.bot.game.players.get(voteid).die()
-        i+=1
-        diect[i] =voteid.name
+        if maxhyo != 0:
+            self.bot.game.players.get(voteid).die()
+            i+=1
+            diect[i] =votename
         random.shuffle(diect)
         for s in range(i):
             await self.bot.game.channel.send(f'{diect[i+1]}さんが無残な姿で発見されました')
