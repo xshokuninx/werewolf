@@ -32,6 +32,7 @@ class Game():
         self.raided = None
         self.fortuned = None
         self.votevisible = 'on'
+        self.dbmode = 'on'
     
     def is_set_vote(self) -> bool:
         """全員が指定完了しているか"""
