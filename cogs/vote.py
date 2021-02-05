@@ -17,17 +17,51 @@ class Vote(commands.Cog):
     
     async def winflg(self, ctx):
         await self.bot.game.channel.send('勝利判定')
+        """人狼陣営が勝利しているか"""
+        village_count = 0
+        werewolf_count = 0
+        yokoflg = 0
+        for p in self.players.alives:
+            if p.role == "人狼":
+                werewolf_count += 1
+            elif p.role == "妖狐":
+                yokoflg = 1
+            else:
+                village_count += 1
+                
+        if werewolf_count == 0 and yokoflg == 1:
+            await self.bot.game.channel.send(f'人狼が全滅し、妖狐が生存しているため妖狐陣営の勝利です！')
+            return
+        elif werewolf_count >= village_count and yokoflg == 1:
+            await self.bot.game.channel.send(f'人狼が村人より多く、妖狐が生存しているため妖狐陣営の勝利です！')
+            return
+        elif werewolf_count == 0 and yokoflg == 1:
+            await self.bot.game.channel.send(f'人狼が全滅したため、村人陣営の勝利です！')
+            return
+        elif werewolf_count >= village_count:
+            await self.bot.game.channel.send(f'人狼が村人より多いため、人狼陣営の勝利です！')
+            return
+            
         
     async def nightck(self, ctx):
         """ 夜になる前の行動"""
         self.bot.game.time = 'night'
-        await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
-    
+        if await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
+        
+        yokoflg=0
+        for p in self.bot.game.players.alives.yokos:
+            yokoflg=1
+        if yokoflg == 0:
+            for p in self.bot.game.players.alives.haitokus:
+                self.bot.game.players.get(p.id).die()
+                await self.bot.game.channel.send(f'{p.name}が後追い自殺しました')
+           
+        
     async def night_shift(self, ctx):
+        """投票処理"""
         if not self.bot.game.is_set_vote():
             return
         guild = self.bot.game.channel.guild
-        
         """ 投票先判定 """
         tohyoct=[0]*(int(self.bot.game.playct)+1)
         for p in self.bot.game.players.alives:
@@ -53,8 +87,8 @@ class Vote(commands.Cog):
                     voteid=r.id
                     votename=r.name
                 hiplay+=1
-            await self.bot.game.channel.send(f'投票の結果最多票の {votename} さんが処刑されました')
-        elif len(maxplay) > 1:
+            await self.bot.game.channel.send(f'投票の結果 最多票の{votename}さんが処刑されました')
+        else:
             hiplay=1
             maxplay = random.choice(maxplay)
             for r in self.bot.game.players.alives:
@@ -62,13 +96,19 @@ class Vote(commands.Cog):
                     voteid=r.id
                     votename=r.name
                 hiplay+=1
-            await self.bot.game.channel.send(f'投票の結果 最多票の中から抽選で　{votename} さんが処刑されました')
+            await self.bot.game.channel.send(f'投票の結果 最多票の中から抽選で{votename}さんが処刑されました')
         self.bot.game.players.get(voteid).die()
         """投票初期化"""
         for b in self.bot.game.players:
             b.vote_target = None
         """勝敗 各プレイヤーへの送信"""
         await self.nightck(ctx)
+        reilog='人狼ではありません'
+        if self.bot.game.players.get(voteid).role == '人狼':
+            reilog='人狼です'
+        for p in self.bot.game.players.alives.reibais:
+            user = self.bot.get_user(p.id)
+            await user.send(f'{votename}さんは{reirog}')
         await self.winflg(ctx)
     
     @commands.command()
