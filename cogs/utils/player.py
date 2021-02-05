@@ -71,6 +71,11 @@ class Players(list):
         return Players(p for p in self if p.role == '霊媒師')
     
     @property
+    def yokos(self) -> Players:
+        """妖狐(複数)"""
+        return Players(p for p in self if p.role == '妖狐')
+    
+    @property
     def haitokus(self) -> Players:
         """背徳者(複数)"""
         return Players(p for p in self if p.role == '背徳者')
