@@ -37,21 +37,23 @@ class Vote(commands.Cog):
                     hiplay+=1
         maxhyo=0
         maxplay=''
-        for num in range(self.bot.game.playct+1):
-            if maxhyo < tohyoct[num]:
-                maxhyo = tohyoct[num]
-                maxplay=str(num)
-            elif maxhyo == tohyoct[num]:
-                maxplay = maxplay + str(num)
+        for num in range(self.bot.game.playct):
+            nums=num+1
+            if maxhyo < tohyoct[nums]:
+                maxhyo = tohyoct[nums]
+                maxplay=str(nums)
+            elif maxhyo == tohyoct[nums]:
+                maxplay = maxplay + str(nums)
         if len(maxplay) == 1:
             hiplay=1
+            await self.bot.game.channel.send(f'{maxplay}')
             for r in self.bot.game.players.alives:
                 if int(maxplay) == hiplay:
                     voteid=r.id
                     votename=r.name
                 hiplay+=1
             await self.bot.game.channel.send(f'投票の結果最多票の {votename} さんが処刑されました')
-        elif len(maxplay) < 1:
+        elif len(maxplay) > 1:
             maxplay = random.choice(maxplay)
             for r in self.bot.game.players.alives:
                 if int(maxplay) == hiplay:
