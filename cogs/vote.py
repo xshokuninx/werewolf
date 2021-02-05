@@ -20,7 +20,7 @@ class Vote(commands.Cog):
         village_count = 0
         werewolf_count = 0
         yokoflg = 0
-        for p in self.players.alives:
+        for p in self.bot.game.players.alives:
             if p.role == "人狼":
                 werewolf_count += 1
             elif p.role == "妖狐":
