@@ -95,6 +95,14 @@ class Vote(commands.Cog):
         for k in self.bot.game.players.kyosins:
             kyosins = kyosins + ' ' +k.name
         await ctx.send(f'この村の狂信者は [{kyosins}] です。')
+        
+    @commands.command()
+    async def j(self, ctx, arg):
+        if self.bot.game.players.get(ctx.author.id).role != '人狼' and self.bot.game.players.get(ctx.author.id).role != '狂信者':
+            await ctx.send('あなたは狼語を話せません。')
+            return
+        await self.bot.game.channel.send('アオォォォォォォン')
+        
     
 def setup(bot):
     return bot.add_cog(Vote(bot))
