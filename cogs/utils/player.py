@@ -65,6 +65,11 @@ class Players(list):
         """狂信者(複数)"""
         return Players(p for p in self if p.role == '狂信者')
     
+    @property
+    def reibais(self) -> Players:
+        """霊媒師(複数)"""
+        return Players(p for p in self if p.role == '霊媒師')
+    
     def get(self, player_id) -> Player:
         for p in self:
             if p.id == player_id:
