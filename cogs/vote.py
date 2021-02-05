@@ -45,7 +45,7 @@ class Vote(commands.Cog):
     
     async def noon_shift(self, ctx):
         """夜行動処理"""
-        if not self.bot.game.is_set_vote():
+        if not self.bot.game.is_set_night():
             return
         diect=[0]*(int(self.bot.game.playct)+1)
         i = 0
@@ -120,8 +120,8 @@ class Vote(commands.Cog):
     async def noonck(self, ctx):
         """ 朝になる前の行動"""
         self.bot.game.time = 'noon'
-            self.bot.game.days += 1
-            await self.bot.game.channel.send(f'{self.bot.game.days}日目 昼')
+        self.bot.game.days += 1
+        await self.bot.game.channel.send(f'{self.bot.game.days}日目 昼')
         
         
     
