@@ -54,7 +54,7 @@ class Vote(commands.Cog):
         for p in self.bot.game.players.alives.uranais:
             user = self.bot.get_user(p.id)
             uranaisaki = p.night_target
-            role = self.bot.get_user(uranaisaki).role
+            role = p.night_target.role
             if role == '人狼':
                 await user.send(f'{uranaisaki.name}さんは人狼です')
             elif role == '妖狐':
