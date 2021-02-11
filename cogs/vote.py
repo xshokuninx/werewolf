@@ -47,7 +47,7 @@ class Vote(commands.Cog):
         """夜行動処理"""
         if not self.bot.game.is_set_night():
             return
-        diect=[0]*(int(self.bot.game.playct)+1)
+        diect=[-2]*(int(self.bot.game.playct)+1)
         i = 0
         
         """占い師"""
@@ -79,7 +79,7 @@ class Vote(commands.Cog):
         
         """人狼"""
         guild = self.bot.game.channel.guild
-        tohyoct=[0]*(int(self.bot.game.playct)+1)
+        tohyoct=[-1]*(int(self.bot.game.playct)+1)
         for p in self.bot.game.players.alives.werewolfs:
             hiplay=1
             for q in self.bot.game.players.alives:
@@ -110,7 +110,10 @@ class Vote(commands.Cog):
                     voteid=r.id
                     votename=r.name
                 hiplay+=1
-        if maxhyo != 0 and voteid.role != '妖狐':
+        for q in self.bot.game.players.alives:
+                if voteid == q.id:                  
+                    role = q.role
+        if maxhyo != 0 and role != '妖狐':
             self.bot.game.players.get(voteid).die()
             i+=1
             diect[i] =votename
