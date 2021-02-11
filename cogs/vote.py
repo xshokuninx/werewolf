@@ -110,10 +110,13 @@ class Vote(commands.Cog):
                     voteid=r.id
                     votename=r.name
                 hiplay+=1
-        if maxhyo != 0:
+        if maxhyo != 0 and voteid.role != '妖狐':
             self.bot.game.players.get(voteid).die()
             i+=1
             diect[i] =votename
+        for ra in self.bot.game.players.alives.werewolfs:
+            user = self.bot.get_user(ra.id)
+            await user.send(f'人狼会議の結果{votename}を襲撃します')
         random.shuffle(diect)
         for s in range(i):
             await self.bot.game.channel.send(f'{diect[s+1]}さんが無残な姿で発見されました')
@@ -133,12 +136,11 @@ class Vote(commands.Cog):
     async def nightck(self, ctx):
         """ 夜になる前の行動"""
         self.bot.game.time = 'night'
-        await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')
-        
+        await self.bot.game.channel.send(f'{self.bot.game.days}日目 夜')        
         yokoflg=0
-        for p in self.bot.game.players.alives.yokos:
+        for nu in self.bot.game.players.alives.yokos:
             yokoflg=1
-        if yokoflg == 1:
+        if yokoflg == 0:
             for p in self.bot.game.players.alives.haitokus:
                 self.bot.game.players.get(p.id).die()
                 await self.bot.game.channel.send(f'{p.name}が後追い自殺しました')
