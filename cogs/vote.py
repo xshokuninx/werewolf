@@ -47,7 +47,7 @@ class Vote(commands.Cog):
         """夜行動処理"""
         if not self.bot.game.is_set_night():
             return
-        diect=[-2]*(int(self.bot.game.playct)+1)
+        diect=[0]*(int(self.bot.game.playct)+1)
         i = 0
         
         """占い師"""
