@@ -113,7 +113,7 @@ class Vote(commands.Cog):
         for q in self.bot.game.players.alives:
                 if voteid == q.id:                  
                     role = q.role
-        if maxhyo != 0 and role != '妖狐':
+        if maxhyo != 0:
             self.bot.game.players.get(voteid).die()
             i+=1
             diect[i] =votename
