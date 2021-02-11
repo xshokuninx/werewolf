@@ -138,7 +138,7 @@ class Vote(commands.Cog):
         yokoflg=0
         for p in self.bot.game.players.alives.yokos:
             yokoflg=1
-        if yokoflg == 0:
+        if yokoflg == 1:
             for p in self.bot.game.players.alives.haitokus:
                 self.bot.game.players.get(p.id).die()
                 await self.bot.game.channel.send(f'{p.name}が後追い自殺しました')
