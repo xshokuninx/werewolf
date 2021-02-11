@@ -121,8 +121,9 @@ class Vote(commands.Cog):
             user = self.bot.get_user(ra.id)
             await user.send(f'人狼会議の結果{votename}を襲撃します')
         random.shuffle(diect)
-        for s in range(i):
-            await self.bot.game.channel.send(f'{diect[s+1]}さんが無残な姿で発見されました')
+        for s in range(int(self.bot.game.playct)):
+            if diect[s+1] != 0:
+                await self.bot.game.channel.send(f'{diect[s+1]}さんが無残な姿で発見されました')
         for b in self.bot.game.players:
             b.night_target = None
         await self.noonck(ctx)
@@ -214,7 +215,7 @@ class Vote(commands.Cog):
             await ctx.send('あなたは行動しているので行動できません')
             return
         tohyosya=self.bot.game.players.get(ctx.author.id).name
-        role = self.bot.game.players.get(ctx.author.id).name
+        role = self.bot.game.players.get(ctx.author.id).role
         if role == '人狼':
             come = '襲撃先'
         elif role == '占い師':
