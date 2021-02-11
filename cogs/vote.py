@@ -79,7 +79,7 @@ class Vote(commands.Cog):
         
         """人狼"""
         guild = self.bot.game.channel.guild
-        tohyoct=[-1]*(int(self.bot.game.playct)+1)
+        tohyoct=[0]*(int(self.bot.game.playct)+1)
         for p in self.bot.game.players.alives.werewolfs:
             hiplay=1
             for q in self.bot.game.players.alives:
@@ -113,13 +113,15 @@ class Vote(commands.Cog):
         for q in self.bot.game.players.alives:
                 if voteid == q.id:                  
                     role = q.role
-        if maxhyo != 0:
+                    """襲撃処理"""
+        if maxhyo != 0 and role != '妖狐':
             self.bot.game.players.get(voteid).die()
             i+=1
             diect[i] =votename
         for ra in self.bot.game.players.alives.werewolfs:
             user = self.bot.get_user(ra.id)
             await user.send(f'人狼会議の結果{votename}を襲撃します')
+            """死亡ログ処理"""
         random.shuffle(diect)
         for s in range(int(self.bot.game.playct)):
             if diect[s+1] != 0:
