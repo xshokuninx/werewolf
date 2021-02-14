@@ -25,6 +25,7 @@ class Player():
         self.raid_target = None
         self.fortune_target = None
         self.yoru_target =None
+        self.winflg = False
     
     def die(self):
         """死亡する"""
@@ -56,7 +57,20 @@ class Players(list):
         """生存者(複数)"""
         return Players(p for p in self if not p.is_dead)
     
-
+    @property
+    def wins(self) -> Players:
+        """勝利者(複数)"""
+        return Players(p for p in self if p.winflg == True)
+    
+    @property
+    def loses(self) -> Players:
+        """敗北者(複数)"""
+        return Players(p for p in self if p.winflg == False)
+    
+    @property
+    def murabitos(self) -> Players:
+        """村人(複数)"""
+        return Players(p for p in self if p.role == '村人')
    
     @property
     def murabitos(self) -> Players:
