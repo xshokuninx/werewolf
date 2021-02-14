@@ -51,7 +51,7 @@ class Vote(commands.Cog):
             for p in self.bot.game.players.wins:
                 await self.bot.game.channel.send(f'{p.name}({p.role})')
             await self.bot.game.channel.send('<負けた人>')
-            for p in self.bot.game.players.s:
+            for p in self.bot.game.players.loses:
                 await self.bot.game.channel.send(f'{p.name}({p.role})')  
             self.bot.game = Game()
             return
