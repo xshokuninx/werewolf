@@ -55,11 +55,13 @@ class Players(list):
     def alives(self) -> Players:
         """生存者(複数)"""
         return Players(p for p in self if not p.is_dead)
+    
 
+   
     @property
-    def werewolfs(self) -> Players:
-        """人狼(複数)"""
-        return Players(p for p in self if p.role == '人狼')
+    def murabitos(self) -> Players:
+        """村人(複数)"""
+        return Players(p for p in self if p.role == '村人')
     
     @property
     def uranais(self) -> Players:
@@ -67,15 +69,25 @@ class Players(list):
         return Players(p for p in self if p.role == '占い師')
     
     @property
-    def kyosins(self) -> Players:
-        """狂信者(複数)"""
-        return Players(p for p in self if p.role == '狂信者')
-    
-    @property
     def reibais(self) -> Players:
         """霊媒師(複数)"""
         return Players(p for p in self if p.role == '霊媒師')
     
+    @property
+    def werewolfs(self) -> Players:
+        """人狼(複数)"""
+        return Players(p for p in self if p.role == '人狼')
+    
+    @property
+    def kyojins(self) -> Players:
+        """狂人(複数)"""
+        return Players(p for p in self if p.role == '狂人')
+    
+    @property
+    def kyosins(self) -> Players:
+        """狂信者(複数)"""
+        return Players(p for p in self if p.role == '狂信者')
+  
     @property
     def yokos(self) -> Players:
         """妖狐(複数)"""
