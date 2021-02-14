@@ -54,9 +54,9 @@ class Vote(commands.Cog):
             for p in self.bot.game.players.loses:
                 await self.bot.game.channel.send(f'{p.name}({p.role})')  
             self.bot.game = Game()
-            return
+            return"""
         elif finflg ==0:
-            await self.playerlist(ctx)
+            await self.playerlist(ctx)"""
 
     async def yokowinflg(self, ctx):
         for p in self.bot.game.players.alives.yokos:
