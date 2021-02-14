@@ -66,11 +66,6 @@ class Players(list):
     def loses(self) -> Players:
         """敗北者(複数)"""
         return Players(p for p in self if p.winflg == False)
-    
-    @property
-    def murabitos(self) -> Players:
-        """村人(複数)"""
-        return Players(p for p in self if p.role == '村人')
    
     @property
     def murabitos(self) -> Players:
