@@ -54,6 +54,7 @@ class Vote(commands.Cog):
             for p in self.bot.game.players.s:
                 await self.bot.game.channel.send(f'{p.name}({p.role})')  
             self.bot.game = Game()
+            return
     
     async def yokowinflg(self, ctx):
         for p in self.bot.game.players.alives.yokos:
