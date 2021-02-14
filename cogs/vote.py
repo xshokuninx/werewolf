@@ -26,23 +26,60 @@ class Vote(commands.Cog):
                 yokoflg = 1
             else:
                 village_count += 1
-                
+        finflg=0
         if werewolf_count == 0 and yokoflg == 1:
             await self.bot.game.channel.send('人狼が全滅し、妖狐が生存しているため妖狐陣営の勝利です！')
-            return
+            await self.yokowinflg(ctx)
+            finflg=1
         elif werewolf_count >= village_count and yokoflg == 1:
             await self.bot.game.channel.send('人狼が村人より多く、妖狐が生存しているため妖狐陣営の勝利です！')
-            return
+            await self.yokowinflg(ctx)
+            finflg=1
         elif werewolf_count == 0 and village_count == 0 and yokoflg == 0:
             await self.bot.game.channel.send('全滅したため引き分けです!')
-            return
+            finflg=1
         elif werewolf_count == 0:
             await self.bot.game.channel.send('人狼が全滅したため、村人陣営の勝利です！')
-            return
+            await self.murawinflg(ctx)
+            finflg=1
         elif werewolf_count >= village_count:
             await self.bot.game.channel.send('人狼が村人より多いため、人狼陣営の勝利です！')
-            return
+            await self.jinrowinflg(ctx)
+            finflg=1
+        if finflg == 1:
+            await self.bot.game.channel.send('<勝った人>')
+            for p in self.bot.game.players.wins:
+                await self.bot.game.channel.send(f'{p.name}({p.role})')
+            await self.bot.game.channel.send('<負けた人>')
+            for p in self.bot.game.players.s:
+                await self.bot.game.channel.send(f'{p.name}({p.role})')  
+            self.bot.game = Game()
     
+    async def yokowinflg(self, ctx):
+        for p in self.bot.game.players.alives.yokos:
+            p.winflg = True
+        for p in self.bot.game.players.haitokus:
+            p.winflg = True
+        return
+    
+    async def murawinflg(self, ctx):
+        for p in self.bot.game.players.murabitos:
+            p.winflg = True
+        for p in self.bot.game.players.uranais:
+            p.winflg = True
+        for p in self.bot.game.players.reibais:
+            p.winflg = True
+        return
+    
+    async def jinrowinflg(self, ctx):
+        for p in self.bot.game.players.werewolfs:
+            p.winflg = True
+        for p in self.bot.game.players.kyojins:
+            p.winflg = True
+        for p in self.bot.game.players.kyosins:
+            p.winflg = True
+        return
+                
     async def noon_shift(self, ctx):
         """夜行動処理"""
         if not self.bot.game.is_set_night():
