@@ -55,7 +55,9 @@ class Vote(commands.Cog):
                 await self.bot.game.channel.send(f'{p.name}({p.role})')  
             self.bot.game = Game()
             return
-    
+        elif finflg ==0:
+            await self.playerlist(ctx)
+
     async def yokowinflg(self, ctx):
         for p in self.bot.game.players.alives.yokos:
             p.winflg = True
@@ -302,7 +304,8 @@ class Vote(commands.Cog):
             await self.night_shift(ctx)
         elif tflg == False:
             await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
-            
+    
+    
             
     @commands.command()
     async def foxlist(self, ctx):
