@@ -178,8 +178,11 @@ class Vote(commands.Cog):
         self.bot.game.time = 'noon'
         self.bot.game.days += 1
         await self.bot.game.channel.send(f'{self.bot.game.days}日目 昼')
-        
-        
+        panflg=0
+        for p in self.bot.game.players.alives.panyas:
+            panflg = 1
+        if panflg == 1:
+            await self.bot.game.channel.send('パン屋が美味しいパンを焼いてくれました！')
     
     async def nightck(self, ctx):
         """ 夜になる前の行動"""
