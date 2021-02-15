@@ -283,8 +283,9 @@ class Vote(commands.Cog):
             ct+=1
             if ct == int(arg):
                 hitohyosya=p.name
-                tflg=True
                 self.bot.game.players.get(ctx.author.id).night_target = p.id
+                if tohyosya != hitohyosya
+                    tflg=True
         if tflg == True:
             await ctx.send(f'{hitohyosya}を{come}として認証しました')
             await self.noon_shift(ctx)
