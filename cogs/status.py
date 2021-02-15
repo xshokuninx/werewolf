@@ -61,6 +61,8 @@ class GameStatus(commands.Cog):
                 role='占い師'
             elif ranpas  =='う':
                 role='霊媒師'
+            elif ranpas  =='え':
+                role='パン屋'
             elif ranpas =='ア':
                 role='人狼'
             elif ranpas =='イ':
