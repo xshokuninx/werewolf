@@ -74,6 +74,8 @@ class Vote(commands.Cog):
             p.winflg = True
         for p in self.bot.game.players.panyas:
             p.winflg = True
+        for p in self.bot.game.players.kariudos:
+            p.winflg = True
         return
     
     async def jinrowinflg(self, ctx):
@@ -155,8 +157,12 @@ class Vote(commands.Cog):
         for q in self.bot.game.players.alives:
                 if voteid == q.id:                  
                     role = q.role
+        kariflg =0
+        for q in self.bot.game.players.alives.kariudos:
+                if voteid == q.night_target:                  
+                    kariflg =1
                     """襲撃処理"""
-        if maxhyo != 0 and role != '妖狐':
+        if maxhyo != 0 and role != '妖狐' and kariflg == 0:
             self.bot.game.players.get(voteid).die()
             i+=1
             diect[i] =votename
@@ -267,6 +273,8 @@ class Vote(commands.Cog):
             come = '襲撃先'
         elif role == '占い師':
             come = '占い先'
+        elif role == '狩人':
+            come = '護衛先'
         else:
             come = '怪しい人'
         ct=0
