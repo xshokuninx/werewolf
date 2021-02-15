@@ -71,6 +71,11 @@ class Players(list):
     def murabitos(self) -> Players:
         """村人(複数)"""
         return Players(p for p in self if p.role == '村人')
+   
+    @property
+    def panyas(self) -> Players:
+        """パン屋(複数)"""
+        return Players(p for p in self if p.role == 'パン屋')
     
     @property
     def uranais(self) -> Players:
