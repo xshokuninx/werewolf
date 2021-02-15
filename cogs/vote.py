@@ -289,7 +289,7 @@ class Vote(commands.Cog):
         if tflg == True:
             await ctx.send(f'{hitohyosya}を{come}として認証しました')
             await self.noon_shift(ctx)
-        elif tflg == False:
+        else:
             await ctx.send(f'{arg}はエラーです。正しく相手を選択してください')
         
         
