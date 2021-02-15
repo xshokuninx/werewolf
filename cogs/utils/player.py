@@ -88,6 +88,11 @@ class Players(list):
         return Players(p for p in self if p.role == '霊媒師')
     
     @property
+    def kariudos(self) -> Players:
+        """狩人(複数)"""
+        return Players(p for p in self if p.role == '狩人')
+    
+    @property
     def werewolfs(self) -> Players:
         """人狼(複数)"""
         return Players(p for p in self if p.role == '人狼')
