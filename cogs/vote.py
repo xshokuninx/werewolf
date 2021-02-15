@@ -72,6 +72,8 @@ class Vote(commands.Cog):
             p.winflg = True
         for p in self.bot.game.players.reibais:
             p.winflg = True
+        for p in self.bot.game.players.panyas:
+            p.winflg = True
         return
     
     async def jinrowinflg(self, ctx):
