@@ -93,6 +93,17 @@ class PlayersCog(commands.Cog):
         await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
         
     @commands.command()
+    async def kariudo(self, ctx):
+        if self.bot.game.status == "nothing":
+            return await ctx.send("現在ゲームはありません。")
+        elif self.bot.game.status == "playing":
+            return await ctx.send("現在ゲーム進行中です。")
+        self.bot.game.casting = self.bot.game.casting + 'お'
+        self.bot.game.castct += 1
+        await ctx.send(f"今の配役:{self.bot.game.casting}")
+        await ctx.send(f"配役人数:{self.bot.game.castct}　参加人数:{self.bot.game.playct}")
+        
+    @commands.command()
     async def jinro(self, ctx):
         if self.bot.game.status == "nothing":
             return await ctx.send("現在ゲームはありません。")
